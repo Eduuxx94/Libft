@@ -11,37 +11,52 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <bsd/string.h>
+
+/*
+The ft_strnstr() function locates the first occurrence of the null-terminated
+	string needle in the string haystack, where not more than len char-
+    acters are searched.  Characters that appear after a `\0' character are not
+	searched.  Since the strnstr() function is a FreeBSD specific API,
+    it should only be used when portability is not a concern.
+*/
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
-	size_t	res;
+	size_t		i;
+	size_t		size;
 
 	i = 0;
-	if (!*needle)
-		return ((char *) haystack);
-	while (haystack[i] != '\0' && len > 0)
+	size = 0;
+	while (needle[size] != '\0')
+		size++;
+	if (needle == NULL || size == 0)
+		return ((char *)haystack);
+	if (size > len)
+		return (NULL);
+	while (i < len)
 	{
-		res = 0;
-		while (needle[res] == haystack[i + res])
+		if (ft_strncmp((char *)&haystack[i], needle, size) == 0)
 		{
-			if (needle[res + 1] == '\0')
-				return ((char *) haystack + i);
-			res++;
-			len--;
+			if (i + size > len)
+				return (NULL);
+			return ((char *)&haystack[i]);
 		}
 		i++;
-		if (needle[res - 1] != haystack [i + res - 1])
-			len--;
 	}
 	return (NULL);
 }
+
 /*
 int main(void)
 {
-	char	texto1[20] = "O texto comprido";
-	char	texto2[20] = "i";
+	char	texto1[20] = "escola 42 futura";
+	char	texto2[20] = "42 futur";
 
-	printf("Original: -> %s\n", strnstr(texto1, texto2, 19));
 	printf("MinhafUN: -> %s\n", ft_strnstr(texto1, texto2, 19));
-}*/
+	printf("valor minha: %d\n", sizeof(ft_strnstr(texto1, texto2, 19)));
+	printf("Original: -> %s\n", strnstr(texto1, texto2, 19));
+	printf("valor origi: %d\n", sizeof(strnstr(texto1, texto2, 19)));
+
+}
+*/

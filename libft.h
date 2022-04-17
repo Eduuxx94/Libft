@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:49:05 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/01/22 17:16:25 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/04/17 21:39:21 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
@@ -53,6 +54,10 @@ int			ft_toupper(int c);
 
 /*
 **			Additional functions ->											*/
+
+char		*ft_itoa(int n);
+void		ft_putchar_fd(char c, int fd);
+void		ft_putstr_fd(char *s, int fd);
 
 /*
 **			Bonus Functions	->												*/

@@ -12,15 +12,24 @@
 
 #include "libft.h"
 
+/*
+The strrchr() function locates the last occurrence of c (converted to a char) in
+	the string pointed to by s.  The terminating null character is considered to
+	be part of the string; therefore if c is `\0', the functions locate the
+	terminating `\0'.
+*/
+
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int		i;
 
-	i = sizeof(s) - 1;
-	while (s[i] != '\0')
+	i = 0;
+	while (s[i])
+		i++;
+	while (i >= 0)
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
+		if (s[i] == (char)c)
+			return (&((char *)s)[i]);
 		i--;
 	}
 	return (NULL);
@@ -28,9 +37,10 @@ char	*ft_strrchr(const char *s, int c)
 /*
 int	main(void)
 {
-	char	texto[20] = "O texto.";
+	char	texto[20] = "";
 
-	printf("Original -> %d\n", strrchr(texto, 'h'));
-	printf("Minhafu. -> %d\n", ft_strrchr(texto, 'h'));
+	printf("Original -> %d\n", strrchr(texto, NULL));
+	printf("Minhafu. -> %d\n", ft_strrchr(texto, NULL));
 	printf("Tamanho do texto: '%s' -> %d\n", texto, sizeof(texto - 1));
-}*/
+}
+*/

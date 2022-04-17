@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 20:59:49 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/01/18 17:34:08 by ede-alme         ###   ########.fr       */
+/*   Created: 2022/04/17 21:36:59 by ede-alme          #+#    #+#             */
+/*   Updated: 2022/04/17 21:49:45 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include <unistd.h>
+//#include <stdlib.h>
+//#include <fcntl.h>
 
-int	ft_tolower(int c)
+void	ft_putstr_fd(char *s, int fd)
 {
-	if (c >= 'A' && c <= 'Z')
-		c = c + 32;
-	return (c);
+	if (fd < 0)
+		return ;
+	while (*s)
+		write (fd, s++, 1);
 }
 /*
 int	main(void)
 {
-	char	i;
+	int	fd;
 
-	i = 'B';
-	printf("%c -> %c\n", i, ft_tolower(i));
-}*/
+	fd = open("Teste.txt", O_WRONLY);
+	ft_putstr_fd("Exemplo 1.", fd);
+	close(fd);
+}
+*/

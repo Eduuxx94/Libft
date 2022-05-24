@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:49:05 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/04/17 21:39:21 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/05/24 15:52:22 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,9 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char		*ft_strrchr(const char *s, int c);
 int			ft_tolower(int c);
 int			ft_toupper(int c);
+
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char		*ft_substr(const char *s, unsigned int start, size_t len);
 
 /*
 **			Additional functions ->											*/

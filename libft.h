@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 16:49:05 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/05/24 15:52:22 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/05/26 14:09:45 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ char		*ft_substr(const char *s, unsigned int start, size_t len);
 char		*ft_itoa(int n);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
+char		*ft_strjoin(char const *s1, char const *s2);
 
 /*
 **			Bonus Functions	->												*/

@@ -6,7 +6,7 @@
 /*   By: ede-alme <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:24:46 by ede-alme          #+#    #+#             */
-/*   Updated: 2022/05/24 15:54:28 by ede-alme         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:31:23 by ede-alme         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,40 @@
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char				*out;
-	unsigned int		i;
-	int					size;
+	char			*out;
+	unsigned int	i;
+	size_t			size_out;
 
 	i = 0;
-	size = 0;
+	size_out = 0;
+	out = NULL;
+	if (!s)
+		return (NULL);
 	while (s[i])
 		i++;
-	if (start < i)
+	if (i > start)
 	{
-		while ((size + start) < i && len != 0 && len--)
-		{
-			size++;
-		}
-		out = malloc(sizeof(char) * size + 1);
-		out[size] = '\0';
-		size--;
-		while (size >= 0)
-		{
-			out[size] = s[size + start];
-			size--;
-		}
-		return (out);
+		while (start + size_out < i && size_out < len)
+			size_out++;
+		len = size_out;
+		out = malloc(sizeof(char) * size_out + 1);
+		while (out && len > 0 && len--)
+			out[len] = s[start + len];
 	}
-	return (NULL);
+	else
+		out = malloc(sizeof(char) * 1);
+	if (out)
+		out[size_out] = '\0';
+	return (out);
 }
 /*
-int main(void)
+int	main(void)
 {
-	char	str[15] = "O texto hello.";
+	char	str[] = "O texto hello.";
 	char	*sstr;
 
-	sstr = ft_substr(str, 8, 5);
-    printf("Texto -> %s\n", sstr);
-}*/
+	sstr = ft_substr(str, 2, 300);
+	printf("Texto -> '%s'\n", sstr);
+	//free (sstr);
+}
+*/
